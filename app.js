@@ -1,5 +1,5 @@
 import * as pdfjsLib from "./pdf.mjs";
-import { PDFDocument, StandardFonts, rgb } from "./pdf-lib.esm.min.js";
+import { PDFDocument, PDFName, PDFString, StandardFonts, rgb } from "./pdf-lib.esm.min.js";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = "./pdf.worker.mjs";
 
@@ -172,7 +172,7 @@ async function downloadFinalPdf() {
       height: 792
     });
 
-    drawPreviewOverlayToPdf(pdfPage, boldFont);
+    drawPreviewOverlayToPdf(outputPdf, pdfPage, boldFont);
 
     const pdfBytes = await outputPdf.save();
     const blob = new Blob([pdfBytes], { type: "application/pdf" });
@@ -198,7 +198,7 @@ async function downloadFinalPdf() {
   }
 }
 
-function drawPreviewOverlayToPdf(pdfPage, boldFont) {
+function drawPreviewOverlayToPdf(pdfDocument, pdfPage, boldFont) {
   const flyerRect = document.querySelector("#flyer").getBoundingClientRect();
   const scaleX = 612 / flyerRect.width;
   const scaleY = 792 / flyerRect.height;
@@ -207,7 +207,7 @@ function drawPreviewOverlayToPdf(pdfPage, boldFont) {
     drawCategoryHeader(pdfPage, boldFont, section.querySelector("h3"), flyerRect, scaleX, scaleY);
 
     section.querySelectorAll("li").forEach((item) => {
-      drawActivityItem(pdfPage, boldFont, item, flyerRect, scaleX, scaleY);
+      drawActivityItem(pdfDocument, pdfPage, boldFont, item, flyerRect, scaleX, scaleY);
     });
   });
 }
@@ -239,7 +239,7 @@ function drawCategoryHeader(pdfPage, boldFont, header, flyerRect, scaleX, scaleY
   });
 }
 
-function drawActivityItem(pdfPage, boldFont, item, flyerRect, scaleX, scaleY) {
+function drawActivityItem(pdfDocument, pdfPage, boldFont, item, flyerRect, scaleX, scaleY) {
   const rect = item.getBoundingClientRect();
   const labelElement = item.querySelector("a, span");
   const labelRect = labelElement.getBoundingClientRect();
@@ -284,8 +284,31 @@ function drawActivityItem(pdfPage, boldFont, item, flyerRect, scaleX, scaleY) {
         thickness: 0.55,
         color: rgb(8 / 255, 8 / 255, 7 / 255)
       });
+
+      addPdfLinkAnnotation(pdfDocument, pdfPage, labelElement.href, {
+        x: textX,
+        y: textY - 1.5,
+        width: textWidth,
+        height: lineHeight + 2
+      });
     }
   });
+}
+
+function addPdfLinkAnnotation(pdfDocument, pdfPage, url, rect) {
+  const annotation = pdfDocument.context.obj({
+    Type: PDFName.of("Annot"),
+    Subtype: PDFName.of("Link"),
+    Rect: [rect.x, rect.y, rect.x + rect.width, rect.y + rect.height],
+    Border: [0, 0, 0],
+    A: {
+      Type: PDFName.of("Action"),
+      S: PDFName.of("URI"),
+      URI: PDFString.of(url)
+    }
+  });
+
+  pdfPage.node.addAnnot(pdfDocument.context.register(annotation));
 }
 
 function wrapPdfText(text, font, fontSize, maxWidth) {
