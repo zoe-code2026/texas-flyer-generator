@@ -16,7 +16,7 @@ This app is ready for static hosting. All PDF rendering and flyer generation run
 
 1. In the new repository, click **Add file** and then **Upload files**.
 2. Upload the contents of this project folder.
-3. Make sure the `vendor` folder contains:
+3. Make sure the repository root contains:
    - `pdf.mjs`
    - `pdf.worker.mjs`
 4. Click **Commit changes**.

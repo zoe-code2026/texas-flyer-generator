@@ -21,8 +21,8 @@ app.js
 index.html
 styles.css
 template-source.pdf
-vendor/pdf.mjs
-vendor/pdf.worker.mjs
+pdf.mjs
+pdf.worker.mjs
 ```
 
 ## GitHub Pages

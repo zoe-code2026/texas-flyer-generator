@@ -1,6 +1,6 @@
-import * as pdfjsLib from "./vendor/pdf.mjs";
+import * as pdfjsLib from "./pdf.mjs";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = "./vendor/pdf.worker.mjs";
+pdfjsLib.GlobalWorkerOptions.workerSrc = "./pdf.worker.mjs";
 
 const form = document.querySelector("#activity-form");
 const flyerContent = document.querySelector("#flyer-content");
