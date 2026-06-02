@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Texas Flyer Generator</title>
+    <link rel="stylesheet" href="styles.css?v=20260602-3">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="builder-panel" aria-labelledby="builder-title">
+        <div class="panel-header">
+          <p class="eyebrow">Tri-Win Sales Tool</p>
+          <h1 id="builder-title">Welcome to Texas Flyer Generator</h1>
+          <p class="intro">Choose any activities to overlay on the locked page-1 Texas template, then print or save as PDF.</p>
+        </div>
+
+        <form id="activity-form" class="category-list"></form>
+
+        <div class="actions">
+          <button id="generate-button" class="primary-button" type="button">Generate Flyer</button>
+          <button id="print-button" class="secondary-button" type="button" disabled>Print / Save PDF</button>
+        </div>
+
+        <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="preview-panel" aria-labelledby="preview-title">
+        <div class="preview-toolbar">
+          <h2 id="preview-title">Flyer Preview</h2>
+          <span>Letter size</span>
+        </div>
+
+        <article id="flyer" class="flyer" aria-label="Generated Welcome to Texas flyer">
+          <canvas id="template-canvas" class="template-canvas" aria-hidden="true"></canvas>
+          <div id="template-fallback" class="template-fallback" hidden>Template loading...</div>
+
+          <div id="flyer-content" class="flyer-content">
+            <p class="empty-preview">Select activities and generate the flyer to preview the overlay here.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="app.js?v=20260602-3"></script>
+  </body>
+</html>

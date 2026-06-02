@@ -1,0 +1,97 @@
+[
+  {
+    "category": "Texas BBQ",
+    "minSelections": 0,
+    "maxSelections": 3,
+    "items": [
+      {
+        "label": "Cattleack Barbeque",
+        "url": "https://cattleackbbq.com/"
+      },
+      {
+        "label": "Terry Black's",
+        "url": "https://terryblacksbbq.com/dallas/"
+      },
+      {
+        "label": "Pecan Lodge",
+        "url": "https://pecanlodge.com/"
+      }
+    ]
+  },
+  {
+    "category": "Tex Mex",
+    "minSelections": 0,
+    "maxSelections": 3,
+    "items": [
+      {
+        "label": "Las Palmas",
+        "url": "https://laspalmasdallas.com/"
+      },
+      {
+        "label": "Mesero",
+        "url": "https://www.mesero.net/"
+      },
+      {
+        "label": "Mi Cocina",
+        "url": "https://www.micocina.com/"
+      }
+    ]
+  },
+  {
+    "category": "Steakhouse",
+    "minSelections": 0,
+    "maxSelections": 3,
+    "items": [
+      {
+        "label": "Al Biernat's",
+        "url": "https://www.albiernats.com/"
+      },
+      {
+        "label": "Pappas Bros",
+        "url": "https://pappasbros.com/location/dallas/"
+      },
+      {
+        "label": "Nick & Sam's",
+        "url": "https://www.nick-sams.com/"
+      }
+    ]
+  },
+  {
+    "category": "Tecovas Boot/Hat",
+    "minSelections": 0,
+    "maxSelections": 1,
+    "items": [
+      {
+        "label": "Enjoy a $400 Tri-Win gift card for a quick trip to Tecovas - sip, shop, and find the perfect pair of cowboy boots or cowboy hat."
+      }
+    ]
+  },
+  {
+    "category": "Other Items",
+    "minSelections": 0,
+    "maxSelections": 3,
+    "items": [
+      {
+        "label": "Ft. Worth Stockyards experience + Dinner at Cattlemens Steakhouse or Joe T. Garcia's"
+      },
+      {
+        "label": "TBK Rooftop / CASA Brasa"
+      },
+      {
+        "label": "Golf (Andy)"
+      },
+      {
+        "label": "Bass Fishing / Pig Hunting on a private 800-acre ranch (depending on the season)"
+      },
+      {
+        "label": "Car Experience"
+      },
+      {
+        "label": "Stadium Tours"
+      },
+      {
+        "label": "Sports event"
+      }
+    ]
+  }
+]
