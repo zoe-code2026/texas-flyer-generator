@@ -40,7 +40,7 @@ async function renderLockedTemplate() {
 
 async function loadActivities() {
   try {
-    const response = await fetch("activities.json");
+    const response = await fetch("./activities.json");
 
     if (!response.ok) {
       throw new Error("Could not load activities.json");
