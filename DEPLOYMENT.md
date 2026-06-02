@@ -19,6 +19,7 @@ This app is ready for static hosting. All PDF rendering and flyer generation run
 3. Make sure the repository root contains:
    - `pdf.mjs`
    - `pdf.worker.mjs`
+   - `pdf-lib.esm.min.js`
 4. Click **Commit changes**.
 
 ### Enable GitHub Pages
@@ -65,9 +66,9 @@ https://texas-flyer-generator.pages.dev/
 
 1. Select activities.
 2. Click **Generate Flyer**.
-3. Click **Print / Save PDF**.
-4. Choose **Save as PDF** in the browser print dialog.
-5. Keep **Pages per sheet** set to `1`.
-6. Save the PDF.
+3. Click **Download Final PDF**.
+4. Save the downloaded `welcome-to-texas-flyer.pdf` file.
 
-The black category bars are embedded as printable SVG elements. PDF export does not depend on the browser's **Background graphics** option.
+The final file is generated directly in the browser as an exact Letter-size PDF. It does not depend on browser print scale, margins, or background-graphics settings.
+
+**Print / Save PDF** remains available as an optional browser-print fallback.

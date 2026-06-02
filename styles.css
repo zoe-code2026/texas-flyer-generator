@@ -127,6 +127,7 @@ h1 {
 }
 
 .primary-button,
+.download-button,
 .secondary-button {
   min-height: 42px;
   border: 0;
@@ -141,12 +142,18 @@ h1 {
   background: #1d1a17;
 }
 
+.download-button {
+  color: #fff;
+  background: #b75d20;
+}
+
 .secondary-button {
   color: #1d1a17;
   background: #f7eee4;
   border: 1px solid #d8c4a7;
 }
 
+.download-button:disabled,
 .secondary-button:disabled {
   cursor: not-allowed;
   opacity: 0.52;

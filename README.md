@@ -6,8 +6,8 @@ Static browser-based flyer generator for the Tri-Win sales team.
 
 - The activity menu is stored in `activities.json`.
 - The locked flyer artwork is stored in `template-source.pdf`.
-- PDF page 1 is rendered in the browser with the bundled files in `vendor/`.
-- The generated flyer can be printed or saved as a PDF from the browser.
+- PDF page 1 is rendered in the browser with the bundled pdf.js files.
+- The final Letter-size PDF is generated directly in the browser with `pdf-lib`.
 - No server-side code, database, or build process is required.
 
 ## Static deployment files
@@ -23,6 +23,7 @@ styles.css
 template-source.pdf
 pdf.mjs
 pdf.worker.mjs
+pdf-lib.esm.min.js
 ```
 
 ## GitHub Pages
