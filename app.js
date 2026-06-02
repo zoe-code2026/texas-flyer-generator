@@ -11,6 +11,8 @@ const statusMessage = document.querySelector("#status-message");
 const templateCanvas = document.querySelector("#template-canvas");
 const templateFallback = document.querySelector("#template-fallback");
 
+document.querySelector("#print-button")?.remove();
+
 let activityMenu = [];
 
 async function initializeApp() {

@@ -70,5 +70,3 @@ https://texas-flyer-generator.pages.dev/
 4. Save the downloaded `welcome-to-texas-flyer.pdf` file.
 
 The final file is generated directly in the browser as an exact Letter-size PDF. It does not depend on browser print scale, margins, or background-graphics settings.
-
-**Print / Save PDF** remains available as an optional browser-print fallback.
