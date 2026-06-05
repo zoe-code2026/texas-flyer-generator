@@ -67,7 +67,7 @@
     ]
   },
   {
-    "category": "Other Items",
+    "category": "Experiences",
     "minSelections": 0,
     "maxSelections": 3,
     "items": [
@@ -87,10 +87,23 @@
         "label": "Car Experience"
       },
       {
-        "label": "Stadium Tours"
+        "label": "Dallas Cowboys AT&T Stadium Tours"
       },
       {
-        "label": "Sports event"
+        "label": "Sports event - Dallas Cowboys"
+      },
+      {
+        "label": "Sports event - Dallas Mavericks"
+      },
+      {
+        "label": "Sports event - Texas Rangers"
+      },
+      {
+        "label": "Sports event - Dallas Stars"
+      },
+      {
+        "label": "Custom activity",
+        "allowCustomText": true
       }
     ]
   }

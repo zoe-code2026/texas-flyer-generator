@@ -64,8 +64,19 @@ function renderForm() {
       const label = getItemLabel(item);
       const value = JSON.stringify({
         label,
-        url: item.url || ""
+        url: item.url || "",
+        allowCustomText: item.allowCustomText || false
       });
+
+      if (item.allowCustomText) {
+        return `
+          <div class="option custom-option">
+            <input id="${id}" type="checkbox" name="${escapeAttribute(group.category)}" value="${escapeAttribute(value)}">
+            <label for="${id}">${escapeHtml(label)}</label>
+            <input class="custom-text" type="text" data-custom-text-for="${id}" placeholder="Type custom activity">
+          </div>
+        `;
+      }
 
       return `
         <label class="option" for="${id}">
@@ -85,12 +96,36 @@ function renderForm() {
       </fieldset>
     `;
   }).join("");
+
+  form.querySelectorAll(".custom-text").forEach((input) => {
+    input.addEventListener("input", () => {
+      const checkbox = document.querySelector(`#${cssEscape(input.dataset.customTextFor)}`);
+
+      if (input.value.trim()) {
+        checkbox.checked = true;
+      }
+    });
+  });
 }
 
 function getSelections() {
   return activityMenu.map((group) => {
     const selectedItems = [...form.querySelectorAll(`input[name="${cssEscape(group.category)}"]:checked`)]
-      .map((input) => JSON.parse(input.value));
+      .map((input) => {
+        const item = JSON.parse(input.value);
+
+        if (!item.allowCustomText) {
+          return item;
+        }
+
+        const customText = form.querySelector(`[data-custom-text-for="${cssEscape(input.id)}"]`)?.value.trim();
+
+        return {
+          ...item,
+          label: customText || item.label,
+          url: ""
+        };
+      });
 
     return {
       ...group,
@@ -358,7 +393,7 @@ function splitIntoColumns(groups) {
   const leftColumn = ["Texas BBQ", "Steakhouse", "Tecovas Boot/Hat"]
     .map((category) => byCategory.get(category))
     .filter(Boolean);
-  const rightColumn = ["Tex Mex", "Other Items"]
+  const rightColumn = ["Tex Mex", "Experiences"]
     .map((category) => byCategory.get(category))
     .filter(Boolean);
 

@@ -120,6 +120,21 @@ h1 {
   accent-color: var(--brand-red);
 }
 
+.custom-option label {
+  cursor: pointer;
+}
+
+.custom-text {
+  grid-column: 2;
+  width: 100%;
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 6px 8px;
+  color: var(--ink);
+  background: #fff;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
