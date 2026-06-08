@@ -113,26 +113,28 @@ h1 {
   line-height: 1.32;
 }
 
-.option input {
+.option input[type="checkbox"] {
   width: 18px;
   height: 18px;
   margin: 0;
   accent-color: var(--brand-red);
 }
 
-.custom-option label {
-  cursor: pointer;
+.custom-option {
+  align-items: center;
 }
 
 .custom-text {
-  grid-column: 2;
   width: 100%;
-  min-height: 34px;
+  min-width: 0;
+  min-height: 40px;
   border: 1px solid var(--line);
   border-radius: 5px;
-  padding: 6px 8px;
+  padding: 8px 10px;
   color: var(--ink);
   background: #fff;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 .actions {
