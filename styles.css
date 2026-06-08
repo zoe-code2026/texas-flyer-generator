@@ -113,6 +113,10 @@ h1 {
   line-height: 1.32;
 }
 
+.option span {
+  overflow-wrap: normal;
+}
+
 .option input[type="checkbox"] {
   width: 18px;
   height: 18px;
