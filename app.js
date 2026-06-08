@@ -43,7 +43,7 @@ async function renderLockedTemplate() {
 
 async function loadActivities() {
   try {
-    const response = await fetch("./activities.json?v=20260608-1");
+    const response = await fetch("./activities.json?v=20260608-2");
 
     if (!response.ok) {
       throw new Error("Could not load activities.json");
@@ -70,9 +70,9 @@ function renderForm() {
 
       if (item.allowCustomText) {
         return `
-          <div class="option custom-option">
+          <div class="custom-option-row">
             <input id="${id}" type="checkbox" name="${escapeAttribute(group.category)}" value="${escapeAttribute(value)}" aria-label="Include custom activity">
-            <input class="custom-text" type="text" data-custom-text-for="${id}" value="${escapeAttribute(label)}" aria-label="${escapeAttribute(label)}">
+            <input class="custom-text" type="text" data-custom-text-for="${id}" placeholder="${escapeAttribute(label)}" aria-label="${escapeAttribute(label)}">
           </div>
         `;
       }
@@ -97,12 +97,6 @@ function renderForm() {
   }).join("");
 
   form.querySelectorAll(".custom-text").forEach((input) => {
-    input.addEventListener("focus", () => {
-      if (input.value === "Custom activity") {
-        input.select();
-      }
-    });
-
     input.addEventListener("input", () => {
       const checkbox = document.querySelector(`#${cssEscape(input.dataset.customTextFor)}`);
 

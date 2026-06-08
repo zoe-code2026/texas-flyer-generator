@@ -120,8 +120,33 @@ h1 {
   accent-color: var(--brand-red);
 }
 
-.custom-option {
+.custom-option-row {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 10px;
   align-items: center;
+  color: #2c2926;
+  line-height: 1.32;
+}
+
+.custom-option-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--brand-red);
+}
+
+.option.custom-option {
+  align-items: center;
+}
+
+.option.custom-option label {
+  display: none;
+}
+
+.option.custom-option .custom-text {
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .custom-text {
